@@ -1,0 +1,10 @@
+{
+    "name": "eneba-search",
+    "private": true,
+    "scripts": {
+        "install:all": "cd server && npm install && cd ../client && npm install",
+        "build": "cd client && npm run build",
+        "seed": "cd server && npm run seed",
+        "start": "cd server && node server.js"
+    }
+}
