@@ -1,41 +1,27 @@
-# Eneba-style game search
+# Eneba Search App
 
-React + Vite frontend and Express + SQLite backend with fuzzy search (Fuse.js). Matches an Eneba-like search results layout (purple theme, top bar, card grid).
+Live demo: https://eneba-project-2kfy.onrender.com/
 
-## Run locally
+## What it is
+Web app with game search (React frontend + Node/Express backend + SQLite database).
 
-**Prerequisites:** Node.js 18+
-
-**Terminal 1 – API and DB:**
-
-```bash
-cd server
-npm install
-npm run seed
-npm start
-```
-
-API runs at `http://localhost:3000`. Seed creates SQLite DB and 3 games (FIFA 23, Red Dead Redemption 2, Split Fiction).
-
-**Terminal 2 – Frontend:**
-
-```bash
-cd client
-npm install
-npm run dev
-```
-
-Open `http://localhost:5173`. Search is proxied to the API; game images are served from the server at `/images`.
-
-## Deploy
-
-- **Backend:** Deploy `server/` to Render, Railway, or Fly.io (Node, `npm install && npm run seed && npm start`). Set `PORT` if required. Use a persistent disk or external DB if you need the seed data to persist.
-- **Frontend:** Build with `cd client && npm run build`. Serve the `client/dist` folder (e.g. Vercel, Netlify, or same host as API). Set API base URL via env (e.g. `VITE_API_URL`) and use it for `fetch` and image `src` if the API is on another origin.
-- **Simple option:** Run both on one host (e.g. Render): serve `client/dist` with Express and run API routes and `/images` from the same server.
+Required games included:
+- FIFA 23
+- Red Dead Redemption 2
+- Split Fiction
 
 ## API
+- `GET /list` — returns all games
+- `GET /list?search=<gamename>` — fuzzy search by game name
 
-- `GET /list` – all games.
-- `GET /list?search=<query>` – fuzzy search by game title (Fuse.js).
+Example:
+- `/list?search=fifa`
 
-Response: `{ count: number, items: Game[] }`. Game: `id`, `title`, `platform`, `region`, `price_eur`, `old_price_eur`, `discount_percent`, `cashback_eur`, `likes`, `image_url`.
+## Run locally
+From the project root:
+
+```bash
+npm install
+npm run install:all
+npm run seed
+npm run start
