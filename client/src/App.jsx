@@ -86,7 +86,7 @@ export default function App() {
             <div className="card" key={g.id}>
               <div className="imgWrap">
                 {g.cashback_eur ? <div className="badge">CASHBACK</div> : null}
-                <img src={g.image_url} alt={g.title} />
+                <img alt={g.title} src={g.image_url} />
               </div>
 
               <div className="cardBody">
