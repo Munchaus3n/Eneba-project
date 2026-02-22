@@ -1,17 +1,11 @@
-/* ============================================================
-   VARIABLES & RESET
-   ============================================================ */
+/* -------------------VARIABLES ---------------*/
 :root {
     --bg: #5f32c4;
-    --topbar: #ffffff;
     --promo: #38006b;
     --card-bg: rgba(45, 22, 90, 0.85);
     --text: #ffffff;
-    --muted: rgba(255, 255, 255, 0.85);
     --muted-dark: rgba(255, 255, 255, 0.55);
-    --line: rgba(0, 0, 0, 0.08);
     --line-dark: rgba(255, 255, 255, 0.1);
-    --price-white: #ffffff;
     --cashback-color: #6dbe2c;
     --region-color: #00d4a0;
     --discount-color: #6dbe2c;
@@ -45,9 +39,7 @@ body {
 }
 
 
-/* ============================================================
-   DESKTOP STYLES  (base — applied to all screen sizes)
-   ============================================================ */
+/* -------------------------------DESKTOP STYLES----------------------*/
 
 /* --- Layout --- */
 .page {
@@ -74,7 +66,6 @@ body {
 /* --- Header --- */
 .topbar {
     background: var(--bg);
-
 }
 
 .topbarInner {
@@ -111,21 +102,9 @@ body {
 }
 
 .brandLogo {
-    height: 80px;
+    height: 50px;
     width: auto;
     display: block;
-}
-
-.brandMark {
-    width: 28px;
-    height: 28px;
-    border-radius: 10px;
-    display: inline-block;
-    background: radial-gradient(circle at 30% 30%, #ff4fd8, transparent 55%),
-        radial-gradient(circle at 70% 30%, #45f0b4, transparent 55%),
-        radial-gradient(circle at 50% 80%, #ffd54a, transparent 55%),
-        #7a4bff;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 /* --- Search --- */
@@ -133,7 +112,6 @@ body {
     position: relative;
     width: 100%;
     max-width: 520px;
-    justify-self: start;
 }
 
 .searchIcon {
@@ -208,19 +186,12 @@ body {
     flex-shrink: 0;
 }
 
-.rightText {
-    white-space: nowrap;
-    color: rgba(255, 255, 255);
-    font-size: 14px;
-    font-weight: 500;
-}
-
 .langGroup {
     display: flex;
     align-items: center;
     gap: 8px;
     flex-shrink: 0;
-    color: rgba(255, 255, 255);
+    color: rgba(255, 255, 255, 0.95);
     font-size: 14px;
     font-weight: 500;
     white-space: nowrap;
@@ -232,7 +203,7 @@ body {
     justify-content: center;
     width: 30px;
     height: 30px;
-    color: rgba(255, 255, 255);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 18px;
     cursor: pointer;
     border-radius: 50%;
@@ -326,7 +297,6 @@ body {
     display: block;
 }
 
-/* CASHBACK badge — green pill sitting just above the platform strip */
 .badge {
     position: absolute;
     left: 0px;
@@ -335,9 +305,7 @@ body {
     align-items: center;
     gap: 5px;
     background: #60e8c3;
-    border: none;
     padding: 4px 10px 4px 8px;
-    border-radius: 0px;
     font-size: 11px;
     letter-spacing: 0.5px;
     font-weight: 700;
@@ -387,12 +355,12 @@ body {
 }
 
 .platformDot.steam {
-    background: #1b2838;
+    background: #1b2e45;
     border: 1px solid #66c0f4;
 }
 
-.platformDot.psn {
-    background: #003087;
+.platformDot.ps5 {
+    background: #023492;
 }
 
 .platformDot.default {
@@ -416,7 +384,6 @@ body {
     color: #fff;
 }
 
-/* Region tag (GLOBAL / EUROPE) — teal */
 .regionTag {
     font-size: 12px;
     font-weight: 700;
@@ -426,7 +393,6 @@ body {
     margin-bottom: 8px;
 }
 
-/* Old price + discount line */
 .originalPriceLine {
     font-size: 13px;
     margin-top: 4px;
@@ -453,7 +419,6 @@ body {
     font-size: 13px;
 }
 
-/* Price row */
 .priceRow {
     display: flex;
     align-items: center;
@@ -476,7 +441,6 @@ body {
     line-height: 1;
 }
 
-/* Cashback */
 .cashback {
     margin-top: 5px;
     font-size: 13px;
@@ -484,7 +448,6 @@ body {
     font-weight: 500;
 }
 
-/* Likes */
 .likes {
     margin-top: 8px;
     font-size: 13px;
@@ -494,15 +457,6 @@ body {
     gap: 4px;
 }
 
-/* Hide old sub row elements — replaced by regionTag + platformStrip */
-.sub,
-.platformTag,
-.dot,
-.tag {
-    display: none;
-}
-
-/* Report link */
 .reportLink {
     position: fixed;
     bottom: 16px;
@@ -524,9 +478,7 @@ body {
 }
 
 
-/* ============================================================
-   MOBILE STYLES
-   ============================================================ */
+/* ---------------MOBILE STYLES------------------------ */
 
 /* -- Tablet: 2-column grid (≤ 1024px) -- */
 @media (max-width: 1024px) {
@@ -536,18 +488,14 @@ body {
     }
 }
 
-/* -- Mobile: single column (≤ 600px) -- */
+/* -- Mobile (≤ 600px) -- */
 @media (max-width: 600px) {
 
-    /* Container */
     .container {
         padding: 0 16px;
     }
 
-    /* Header: switch from grid to flex so search fills remaining space */
     .topbarInner {
-        display: flex;
-        align-items: center;
         gap: 12px;
         height: 60px;
         min-height: 60px;
@@ -572,23 +520,19 @@ body {
         margin-left: 0;
     }
 
-    /* Content */
     .content {
         padding: 16px 0 40px;
     }
 
-    /* Grid */
     .grid {
         grid-template-columns: 1fr;
         gap: 12px;
     }
 
-    /* Card image */
     .imgWrap img {
         height: 260px;
     }
 
-    /* Report link */
     .reportLink {
         right: 12px;
         bottom: 10px;
